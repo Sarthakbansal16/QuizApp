@@ -8,5 +8,4 @@ router.post("/register",registerUser);
 router.post("/login",loginUser);
 router.post("get-user-info",verifyToken,getProfile);
 
-
 export default router;

@@ -9,7 +9,7 @@ import {
 const router = express.Router();
 
 router.post("/addReport", verifyToken, addReport);
-router.post("getAllReports", verifyToken, getAllReports);
-router.post("getAllReportsByUser", verifyToken, getAllReportsByUser);
+router.post("/getAllReports", verifyToken, getAllReports);
+router.post("/getAllReportsByUser", verifyToken, getAllReportsByUser);
 
 export default router;

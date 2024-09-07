@@ -6,7 +6,7 @@ import { ApiError } from "../utils/ApiError";
 export const addReport = async (req, res) => {
   try {
     const newReport = await Report.create(req.body);
-    res.status(200).json(200, "", "Attempt added successfully");
+    res.status(200).json(200, newReport, "Attempt added successfully");
   } catch (error) {
     throw new ApiError(500, "Something went wrong while adding new report");
   }
