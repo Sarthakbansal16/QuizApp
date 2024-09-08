@@ -1,7 +1,7 @@
 import Exam from "../models/exam.model.js";
 import Report from "../models/report.model.js";
 import User from "../models/report.model.js";
-import { ApiError } from "../utils/ApiError";
+import { ApiError } from "../utils/ApiError.js";
 
 export const addReport = async (req, res) => {
   try {
@@ -43,10 +43,11 @@ export const getAllReports = async (req, res) => {
 export const getAllReportsByUser = async (req, res) => {
   try {
     const reports = await Report.find({ user: req.body.userId })
+      .populate("exam")
       .populate("user")
       .sort({ createdAt: -1 });
     res.status(200).json(200, reports, "Attempts fetched successfully");
-  } catch (error) {
+  } catch (error){
     throw new ApiError(500, "Something went wrong while getting all reports");
   }
 };

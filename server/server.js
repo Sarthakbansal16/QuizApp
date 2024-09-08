@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import userRoutes from "./routes/user.routes.js";
 import reportRoutes from "./routes/report.routes.js";
+import examRoutes from "./routes/exam.routes.js"
 
 const app = express();
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/user", userRoutes);
 app.use("/api/report", reportRoutes);
+app.use("/api/exam",examRoutes);
 
 app.listen(8800, () => {
   connect();
