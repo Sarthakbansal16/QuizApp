@@ -49,7 +49,7 @@ export const loginUser = async (req, res) => {
         .send({ message: "Invalid password", success: false });
     }
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
+      expiresIn: "3d",
     });
 
     const { password, ...info } = user;

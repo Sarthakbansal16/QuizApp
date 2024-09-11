@@ -67,12 +67,31 @@ export const deleteExam = async (req, res) => {
 export const addQuestion = async (req, res) => {
   try {
     const newQuestion = await Question.create(req.body);
-    const exam = await Exam.findById(req.body.exam);
-    exam.questions.push(newQuestion._id);
-    await exam.save();
+    // const exam = await Exam.findById(req.body.exam);
+
+    // if (!exam) {
+    //   throw new ApiError(404,"Exam Not found!")
+    // }
+    // exam.questions.push(newQuestion._id);
+    // await exam.save();
+    if (req.body.exam) {
+      const exam = await Exam.findById(req.body.exam);
+
+      if (!exam) {
+        return res.status(404).send({
+          message: "Exam not found",
+          success: false,
+        });
+      }
+
+      // Add the question to the exam if the exam exists
+      exam.questions.push(newQuestion._id);
+      await exam.save();
+    }
     res.send({
       message: "Question added successfully",
       success: true,
+      data: newQuestion,
     });
   } catch (error) {
     throw new ApiError(
@@ -97,11 +116,22 @@ export const editQuestion = async (req, res) => {
 export const deleteQuestion = async (req, res) => {
   try {
     await Question.findByIdAndDelete(req.body.questionId);
-    const exam = await Exam.findById(req.body.examId);
-    exam.questions = exam.questions.filter(
-      (question) => question._id != req.body.questionId
-    );
+    // if (req.body.examId) {
+    //   const exam = await Exam.findById(req.body.examId);
+    //   exam.questions = exam.questions.filter(
+    //     (question) => question._id != req.body.questionId
+    //   );
+    // }
+    if (req.body.examId) {
+      const exam = await Exam.findById(req.body.examId);
+      if (exam) {
+        exam.questions = exam.questions.filter(
+          (question) => question._id !== req.body.questionId
+        );
+        await exam.save();
+      }
+    }
   } catch (error) {
-    throw new ApiError(500,"something went wrong while deleting question");
+    throw new ApiError(500, "something went wrong while deleting question");
   }
 };

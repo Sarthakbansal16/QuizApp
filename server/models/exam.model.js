@@ -24,7 +24,7 @@ const examSchema = new Schema(
       required: true,
     },
     questions: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: [mongoose.Schema.Types.ObjectId],
       ref: "Question",
       required: true,
     },
