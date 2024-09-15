@@ -1,5 +1,5 @@
 // Importing axios instance
-import axiosInstance from ".";
+import axiosInstance from "./index.js";
 
 // Register user
 export const registerUser = async (payload) => {

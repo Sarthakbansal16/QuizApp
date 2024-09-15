@@ -1,5 +1,5 @@
 // Importing axios instance
-import axiosInstance from ".";
+import axiosInstance from "./index.js";
 
 // Add report
 export const addReport = async (payload) => {
