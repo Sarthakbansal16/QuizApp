@@ -7,7 +7,8 @@ export const registerUser = async (payload) => {
     const response = await axiosInstance.post('/api/users/register', payload);
     return response.data;
   } catch (error) {
-    return error.response.data;
+    console.error('Registration error:', error.response ? error.response.data : error.message);
+    return error.response ? error.response.data : { success: false, message: 'An error occurred' };
   }
 };
 
