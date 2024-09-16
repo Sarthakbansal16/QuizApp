@@ -4,7 +4,7 @@ import axiosInstance from "./index.js";
 // Register user
 export const registerUser = async (payload) => {
   try {
-    const response = await axiosInstance.post('/api/users/register', payload);
+    const response = await axiosInstance.post('/api/user/register', payload);
     return response.data;
   } catch (error) {
     console.error('Registration error:', error.response ? error.response.data : error.message);
@@ -15,7 +15,7 @@ export const registerUser = async (payload) => {
 // Login user
 export const loginUser = async (payload) => {
   try {
-    const response = await axiosInstance.post('/api/users/login', payload);
+    const response = await axiosInstance.post('/api/user/login', payload);
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -25,7 +25,7 @@ export const loginUser = async (payload) => {
 // Get user info
 export const getUserInfo = async () => {
   try {
-    const response = await axiosInstance.post('/api/users/get-user-info');
+    const response = await axiosInstance.post('/api/user/get-user-info');
     return response.data;
   } catch (error) {
     return error.response.data;

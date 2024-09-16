@@ -6,7 +6,6 @@ import { SetUser } from "../redux/usersSlice.js";
 import { useNavigate } from "react-router-dom";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice.js";
 
-
 function Protectedroute({children}) {
   const dispatch =useDispatch();
   const { user } = useSelector((state) => state.users);
@@ -79,9 +78,7 @@ function Protectedroute({children}) {
       },
     },
   ];
-
  
-  
 const getUserData = async() => {
   try{
     dispatch(ShowLoading());

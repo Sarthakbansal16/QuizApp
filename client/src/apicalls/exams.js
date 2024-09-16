@@ -4,7 +4,7 @@ import axiosInstance from "./index.js";
 // Add exam
 export const addExam = async (payload) => {
   try {
-    const response = await axiosInstance.post("/api/exams/addExam", payload);
+    const response = await axiosInstance.post("/api/exam/addExam", payload);
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -14,7 +14,7 @@ export const addExam = async (payload) => {
 // Get all exams
 export const getAllExams = async () => {
   try {
-    const response = await axiosInstance.post("/api/exams/getAllExams");
+    const response = await axiosInstance.post("/api/exam/getAllExams");
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -25,7 +25,7 @@ export const getAllExams = async () => {
 export const getExamById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/getExamById",
+      "/api/exam/getExamById",
       payload
     );
     return response.data;
@@ -38,7 +38,7 @@ export const getExamById = async (payload) => {
 export const editExamById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/editExam",
+      "/api/exam/editExam",
       payload
     );
     return response.data;
@@ -51,7 +51,7 @@ export const editExamById = async (payload) => {
 export const deleteExamById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/deleteExam",
+      "/api/exam/deleteExam",
       payload
     );
     return response.data;
@@ -64,7 +64,7 @@ export const deleteExamById = async (payload) => {
 export const addQuestionToExam = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/addQuestion",
+      "/api/exam/addQuestion",
       payload
     );
     return response.data;
@@ -77,7 +77,7 @@ export const addQuestionToExam = async (payload) => {
 export const editQuestionById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/editQuestion",
+      "/api/exam/editQuestion",
       payload
     );
     return response.data;
@@ -90,7 +90,7 @@ export const editQuestionById = async (payload) => {
 export const deleteQuestionById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/exams/deleteQuestion",
+      "/api/exam/deleteQuestion",
       payload
     );
     return response.data;
