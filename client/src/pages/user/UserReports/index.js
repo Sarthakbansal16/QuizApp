@@ -7,8 +7,6 @@ import { getAllReportsByUser } from "../../../apicalls/reports.js";
 import { useEffect } from "react";
 import moment from "moment";
 
-
-
 function UserReports() {
     const [reportsData, setReportsData] = React.useState([]);
     const dispatch = useDispatch();

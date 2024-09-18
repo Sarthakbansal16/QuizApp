@@ -1,8 +1,9 @@
 import { Form, message, Modal } from "antd";
 import React from 'react'
-import { addQuestionToExam, editQuestionById } from "../../../apicalls/exams";
+import { addQuestionToExam, editQuestionById } from "../../../apicalls/exams.js";
 import { useDispatch } from "react-redux";
-import { HideLoading, ShowLoading } from "../../../redux/loaderSlice";
+import { HideLoading, ShowLoading } from "../../../redux/loaderSlice.js";
+
 
 function AddEditQuestion({
     showAddEditQuestionModal,
@@ -108,5 +109,7 @@ function AddEditQuestion({
         </Modal>
     )
 }
+
+
 
 export default AddEditQuestion

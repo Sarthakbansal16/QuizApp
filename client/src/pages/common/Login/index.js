@@ -3,7 +3,7 @@ import {Form, message} from 'antd'
 import {Link} from "react-router-dom"
 import {loginUser} from '../../../apicalls/users.js'
 import { HideLoading, ShowLoading } from '../../../redux/loaderSlice.js';
-import { shallowEqual, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 
 const Login = () => {
   const dispatch = useDispatch();
